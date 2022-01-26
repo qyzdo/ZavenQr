@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ScannerViewController.swift
 //  ZavenQr
 //
 //  Created by Oskar Figiel on 26/01/2022.
@@ -8,7 +8,7 @@
 import AVFoundation
 import UIKit
 
-final class ViewController: UIViewController {
+final class ScannerViewController: UIViewController {
     private let captureSession = AVCaptureSession()
     private let previewLayer: AVCaptureVideoPreviewLayer
 
