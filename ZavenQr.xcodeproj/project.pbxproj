@@ -13,7 +13,7 @@
 		1699854527A1ABF400D08774 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1699854427A1ABF400D08774 /* Assets.xcassets */; };
 		1699854827A1ABF400D08774 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1699854627A1ABF400D08774 /* LaunchScreen.storyboard */; };
 		1699855427A1D5CE00D08774 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699855327A1D5CE00D08774 /* Coordinator.swift */; };
-		1699855727A1D62000D08774 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699855627A1D62000D08774 /* AppCoordinator.swift */; };
+		1699855A27A1DB4600D08774 /* ScannerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699855927A1DB4600D08774 /* ScannerCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		1699854727A1ABF400D08774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1699854927A1ABF400D08774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1699855327A1D5CE00D08774 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		1699855627A1D62000D08774 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1699855927A1DB4600D08774 /* ScannerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				1699853F27A1ABF300D08774 /* ScannerViewController.swift */,
+				1699855927A1DB4600D08774 /* ScannerCoordinator.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -89,7 +90,6 @@
 				1699854627A1ABF400D08774 /* LaunchScreen.storyboard */,
 				1699853B27A1ABF300D08774 /* AppDelegate.swift */,
 				1699853D27A1ABF300D08774 /* SceneDelegate.swift */,
-				1699855627A1D62000D08774 /* AppCoordinator.swift */,
 			);
 			path = AppStart;
 			sourceTree = "<group>";
@@ -187,8 +187,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1699855427A1D5CE00D08774 /* Coordinator.swift in Sources */,
+				1699855A27A1DB4600D08774 /* ScannerCoordinator.swift in Sources */,
 				1699854027A1ABF300D08774 /* ScannerViewController.swift in Sources */,
-				1699855727A1D62000D08774 /* AppCoordinator.swift in Sources */,
 				1699853C27A1ABF300D08774 /* AppDelegate.swift in Sources */,
 				1699853E27A1ABF300D08774 /* SceneDelegate.swift in Sources */,
 			);

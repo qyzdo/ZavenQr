@@ -12,6 +12,8 @@ final class ScannerViewController: UIViewController {
     private let captureSession = AVCaptureSession()
     private let previewLayer: AVCaptureVideoPreviewLayer
 
+    weak var coordinator: ScannerCoordinator?
+
     override var prefersStatusBarHidden: Bool {
         return true
     }
