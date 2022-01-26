@@ -40,23 +40,13 @@ final class ScannerViewController: UIViewController {
             captureSession.startRunning()
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        setupInput()
-        setupPreviewLayer()
-        setupScanningBox()
-    }
 
-    private func setupScanningBox() {
-        view.addSubview(scanningBox)
-        NSLayoutConstraint.activate([
-            scanningBox.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            scanningBox.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            scanningBox.heightAnchor.constraint(equalToConstant: 200),
-            scanningBox.widthAnchor.constraint(equalToConstant: 200)
-        ])
+        setupInput()
+        setupView()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,9 +75,40 @@ final class ScannerViewController: UIViewController {
         }
     }
 
+    private func setupView() {
+        setupPreviewLayer()
+        setupScanningBox()
+        setupDimEffect()
+    }
+
     private func setupPreviewLayer() {
         previewLayer.frame = view.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
+    }
+
+    private func setupScanningBox() {
+        view.addSubview(scanningBox)
+        NSLayoutConstraint.activate([
+            scanningBox.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            scanningBox.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            scanningBox.heightAnchor.constraint(equalToConstant: 200),
+            scanningBox.widthAnchor.constraint(equalToConstant: 200)
+        ])
+        view.layoutIfNeeded()
+    }
+
+    private func setupDimEffect() {
+        let path = UIBezierPath(rect: view.frame)
+        let circlePath = UIBezierPath(rect: scanningBox.frame)
+        path.append(circlePath)
+        path.usesEvenOddFillRule = true
+
+        let fillLayer = CAShapeLayer()
+        fillLayer.path = path.cgPath
+        fillLayer.fillRule = .evenOdd
+        fillLayer.fillColor = view.backgroundColor?.cgColor
+        fillLayer.opacity = 0.5
+        view.layer.addSublayer(fillLayer)
     }
 }
