@@ -56,12 +56,10 @@
 		1699853A27A1ABF200D08774 /* ZavenQr */ = {
 			isa = PBXGroup;
 			children = (
+				1699855527A1D5FB00D08774 /* AppStart */,
 				1699855227A1D5C200D08774 /* Protocols */,
 				1699855027A1D55600D08774 /* Scanner */,
-				1699853B27A1ABF300D08774 /* AppDelegate.swift */,
-				1699853D27A1ABF300D08774 /* SceneDelegate.swift */,
 				1699854427A1ABF400D08774 /* Assets.xcassets */,
-				1699854627A1ABF400D08774 /* LaunchScreen.storyboard */,
 				1699854927A1ABF400D08774 /* Info.plist */,
 			);
 			path = ZavenQr;
@@ -81,6 +79,16 @@
 				1699855327A1D5CE00D08774 /* Coordinator.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1699855527A1D5FB00D08774 /* AppStart */ = {
+			isa = PBXGroup;
+			children = (
+				1699854627A1ABF400D08774 /* LaunchScreen.storyboard */,
+				1699853B27A1ABF300D08774 /* AppDelegate.swift */,
+				1699853D27A1ABF300D08774 /* SceneDelegate.swift */,
+			);
+			path = AppStart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
