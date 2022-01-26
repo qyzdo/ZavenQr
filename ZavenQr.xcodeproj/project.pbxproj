@@ -302,6 +302,7 @@
 				DEVELOPMENT_TEAM = 9AB3Z82UPH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ZavenQr/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We must access the camera to scan qr codes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -329,6 +330,7 @@
 				DEVELOPMENT_TEAM = 9AB3Z82UPH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ZavenQr/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We must access the camera to scan qr codes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
