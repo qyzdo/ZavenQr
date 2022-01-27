@@ -20,11 +20,6 @@ final class ScannerViewModel: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         setupOutPut()
     }
 
-    func setupScanningArea(_ scanningArea: CGRect) {
-        let scanningAreaRect = previewLayer.metadataOutputRectConverted(fromLayerRect: scanningArea)
-        metadataOutput.rectOfInterest = scanningAreaRect
-    }
-
     private func setupInput() {
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
         let videoInput: AVCaptureDeviceInput
@@ -54,6 +49,18 @@ final class ScannerViewModel: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         metadataOutput.metadataObjectTypes = [.qr]
     }
 
+    func startCaptureSessionIfNeeded() {
+        if !captureSession.isRunning {
+            captureSession.startRunning()
+        }
+    }
+
+    func stopCaptureSessionIfNeeded() {
+        if captureSession.isRunning {
+            captureSession.stopRunning()
+        }
+    }
+
     internal func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         guard let metadataObject = metadataObjects.first,
               let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject,
@@ -69,15 +76,8 @@ final class ScannerViewModel: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         return previewLayer
     }
 
-    func stopCaptureSessionIfNeeded() {
-        if captureSession.isRunning {
-            captureSession.stopRunning()
-        }
-    }
-
-    func startCaptureSessionIfNeeded() {
-        if !captureSession.isRunning {
-            captureSession.startRunning()
-        }
+    func setupScanningArea(_ scanningArea: CGRect) {
+        let scanningAreaRect = previewLayer.metadataOutputRectConverted(fromLayerRect: scanningArea)
+        metadataOutput.rectOfInterest = scanningAreaRect
     }
 }
