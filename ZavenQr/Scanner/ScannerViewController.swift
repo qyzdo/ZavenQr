@@ -44,6 +44,7 @@ final class ScannerViewController: UIViewController {
         view.backgroundColor = .black
 
         setupView()
+        scannerViewModel.setupScanningArea(scanningBox.frame)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
