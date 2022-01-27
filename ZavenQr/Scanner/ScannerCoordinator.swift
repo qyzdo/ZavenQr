@@ -20,10 +20,4 @@ final class ScannerCoordinator: Coordinator {
         scannerViewController.coordinator = self
         navigationController.setViewControllers([scannerViewController], animated: true)
     }
-
-    func test() {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .red
-        navigationController.pushViewController(vc, animated: true)
-    }
 }
