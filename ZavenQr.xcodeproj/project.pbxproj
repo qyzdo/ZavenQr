@@ -14,6 +14,7 @@
 		1699854827A1ABF400D08774 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1699854627A1ABF400D08774 /* LaunchScreen.storyboard */; };
 		1699855427A1D5CE00D08774 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699855327A1D5CE00D08774 /* Coordinator.swift */; };
 		1699855A27A1DB4600D08774 /* ScannerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699855927A1DB4600D08774 /* ScannerCoordinator.swift */; };
+		BFA66885D9796F8763B48843 /* Pods_ZavenQr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDE782A24ED19F7DA52ED96 /* Pods_ZavenQr.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		1699854927A1ABF400D08774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1699855327A1D5CE00D08774 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1699855927A1DB4600D08774 /* ScannerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerCoordinator.swift; sourceTree = "<group>"; };
+		3508F98AECE7768EEDFC1229 /* Pods-ZavenQr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZavenQr.release.xcconfig"; path = "Target Support Files/Pods-ZavenQr/Pods-ZavenQr.release.xcconfig"; sourceTree = "<group>"; };
+		6BA680F630D870F5750313E8 /* Pods-ZavenQr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZavenQr.debug.xcconfig"; path = "Target Support Files/Pods-ZavenQr/Pods-ZavenQr.debug.xcconfig"; sourceTree = "<group>"; };
+		ABDE782A24ED19F7DA52ED96 /* Pods_ZavenQr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZavenQr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA66885D9796F8763B48843 /* Pods_ZavenQr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				1699853A27A1ABF200D08774 /* ZavenQr */,
 				1699853927A1ABF200D08774 /* Products */,
+				B46793D21D95967E931B26A9 /* Pods */,
+				FBDF77650DF97A1BF23AC6A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +101,24 @@
 			path = AppStart;
 			sourceTree = "<group>";
 		};
+		B46793D21D95967E931B26A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6BA680F630D870F5750313E8 /* Pods-ZavenQr.debug.xcconfig */,
+				3508F98AECE7768EEDFC1229 /* Pods-ZavenQr.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FBDF77650DF97A1BF23AC6A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABDE782A24ED19F7DA52ED96 /* Pods_ZavenQr.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,10 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1699854C27A1ABF400D08774 /* Build configuration list for PBXNativeTarget "ZavenQr" */;
 			buildPhases = (
+				5622F07BC5CD5571EC4291F3 /* [CP] Check Pods Manifest.lock */,
 				1699853427A1ABF200D08774 /* Sources */,
 				1699853527A1ABF200D08774 /* Frameworks */,
 				1699853627A1ABF200D08774 /* Resources */,
 				1699854F27A1AD6600D08774 /* SwiftLint */,
+				9D6C66C64CBA0A949FD7F8E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -178,6 +205,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		5622F07BC5CD5571EC4291F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZavenQr-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D6C66C64CBA0A949FD7F8E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZavenQr/Pods-ZavenQr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZavenQr/Pods-ZavenQr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZavenQr/Pods-ZavenQr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -326,6 +392,7 @@
 		};
 		1699854D27A1ABF400D08774 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BA680F630D870F5750313E8 /* Pods-ZavenQr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -354,6 +421,7 @@
 		};
 		1699854E27A1ABF400D08774 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3508F98AECE7768EEDFC1229 /* Pods-ZavenQr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
