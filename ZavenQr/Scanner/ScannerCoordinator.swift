@@ -16,7 +16,7 @@ final class ScannerCoordinator: Coordinator {
     }
 
     func start() {
-        let scannerViewController = ScannerViewController()
+        let scannerViewController = ScannerViewController(scannerViewModel: ScannerViewModel())
         scannerViewController.coordinator = self
         navigationController.setViewControllers([scannerViewController], animated: true)
     }

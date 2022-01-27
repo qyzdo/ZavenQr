@@ -9,8 +9,7 @@ import AVFoundation
 import UIKit
 
 final class ScannerViewController: UIViewController {
-    private let captureSession = AVCaptureSession()
-    private let previewLayer: AVCaptureVideoPreviewLayer
+    private let scannerViewModel: ScannerViewModel
 
     weak var coordinator: ScannerCoordinator?
 
@@ -18,8 +17,8 @@ final class ScannerViewController: UIViewController {
         return true
     }
 
-    init() {
-        self.previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+    init(scannerViewModel: ScannerViewModel) {
+        self.scannerViewModel = scannerViewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -37,44 +36,19 @@ final class ScannerViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        if !captureSession.isRunning {
-            captureSession.startRunning()
-        }
+        scannerViewModel.startCaptureSessionIfNeeded()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
 
-        setupInput()
         setupView()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
-        if captureSession.isRunning {
-            captureSession.stopRunning()
-        }
-    }
-
-    private func setupInput() {
-        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
-        let videoInput: AVCaptureDeviceInput
-
-        do {
-            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
-        } catch {
-            return
-        }
-
-        if captureSession.canAddInput(videoInput) {
-            captureSession.addInput(videoInput)
-        } else {
-            debugPrint("Scanning not supported")
-            return
-        }
+        scannerViewModel.stopCaptureSessionIfNeeded()
     }
 
     private func setupView() {
@@ -84,9 +58,8 @@ final class ScannerViewController: UIViewController {
     }
 
     private func setupPreviewLayer() {
-        previewLayer.frame = view.layer.bounds
-        previewLayer.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(previewLayer)
+        let layer = scannerViewModel.createPreviewLayer(layerBounds: view.layer.bounds)
+        view.layer.addSublayer(layer)
     }
 
     private func setupScanningBox() {

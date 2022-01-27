@@ -14,6 +14,7 @@
 		1699854827A1ABF400D08774 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1699854627A1ABF400D08774 /* LaunchScreen.storyboard */; };
 		1699855427A1D5CE00D08774 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699855327A1D5CE00D08774 /* Coordinator.swift */; };
 		1699855A27A1DB4600D08774 /* ScannerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699855927A1DB4600D08774 /* ScannerCoordinator.swift */; };
+		16BC5C5C27A32D8200260921 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC5C5B27A32D8200260921 /* ScannerViewModel.swift */; };
 		BFA66885D9796F8763B48843 /* Pods_ZavenQr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDE782A24ED19F7DA52ED96 /* Pods_ZavenQr.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		1699854927A1ABF400D08774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1699855327A1D5CE00D08774 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1699855927A1DB4600D08774 /* ScannerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerCoordinator.swift; sourceTree = "<group>"; };
+		16BC5C5B27A32D8200260921 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		3508F98AECE7768EEDFC1229 /* Pods-ZavenQr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZavenQr.release.xcconfig"; path = "Target Support Files/Pods-ZavenQr/Pods-ZavenQr.release.xcconfig"; sourceTree = "<group>"; };
 		6BA680F630D870F5750313E8 /* Pods-ZavenQr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZavenQr.debug.xcconfig"; path = "Target Support Files/Pods-ZavenQr/Pods-ZavenQr.debug.xcconfig"; sourceTree = "<group>"; };
 		ABDE782A24ED19F7DA52ED96 /* Pods_ZavenQr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZavenQr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 			children = (
 				1699853F27A1ABF300D08774 /* ScannerViewController.swift */,
 				1699855927A1DB4600D08774 /* ScannerCoordinator.swift */,
+				16BC5C5B27A32D8200260921 /* ScannerViewModel.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -107,7 +110,6 @@
 				6BA680F630D870F5750313E8 /* Pods-ZavenQr.debug.xcconfig */,
 				3508F98AECE7768EEDFC1229 /* Pods-ZavenQr.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -253,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1699855427A1D5CE00D08774 /* Coordinator.swift in Sources */,
+				16BC5C5C27A32D8200260921 /* ScannerViewModel.swift in Sources */,
 				1699855A27A1DB4600D08774 /* ScannerCoordinator.swift in Sources */,
 				1699854027A1ABF300D08774 /* ScannerViewController.swift in Sources */,
 				1699853C27A1ABF300D08774 /* AppDelegate.swift in Sources */,
