@@ -15,6 +15,7 @@ protocol APIRequest {
     var method: RequestType { get }
     var path: String { get }
     var parameters: [String : String] { get }
+    // swiftlint:disable:previous colon
 }
 
 extension APIRequest {
