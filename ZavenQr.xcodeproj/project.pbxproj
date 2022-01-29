@@ -19,6 +19,7 @@
 		16E9332A27A59AAF003220D9 /* FindImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E9332927A59AAF003220D9 /* FindImageRequest.swift */; };
 		16E9332C27A59BD8003220D9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E9332B27A59BD8003220D9 /* APIClient.swift */; };
 		16E9332E27A5A2D5003220D9 /* PrivateKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E9332D27A5A2D5003220D9 /* PrivateKeys.swift */; };
+		16E9333127A5A5DE003220D9 /* UnsplashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E9333027A5A5DE003220D9 /* UnsplashModel.swift */; };
 		BFA66885D9796F8763B48843 /* Pods_ZavenQr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDE782A24ED19F7DA52ED96 /* Pods_ZavenQr.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		16E9332927A59AAF003220D9 /* FindImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindImageRequest.swift; sourceTree = "<group>"; };
 		16E9332B27A59BD8003220D9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		16E9332D27A5A2D5003220D9 /* PrivateKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKeys.swift; sourceTree = "<group>"; };
+		16E9333027A5A5DE003220D9 /* UnsplashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashModel.swift; sourceTree = "<group>"; };
 		3508F98AECE7768EEDFC1229 /* Pods-ZavenQr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZavenQr.release.xcconfig"; path = "Target Support Files/Pods-ZavenQr/Pods-ZavenQr.release.xcconfig"; sourceTree = "<group>"; };
 		6BA680F630D870F5750313E8 /* Pods-ZavenQr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZavenQr.debug.xcconfig"; path = "Target Support Files/Pods-ZavenQr/Pods-ZavenQr.debug.xcconfig"; sourceTree = "<group>"; };
 		ABDE782A24ED19F7DA52ED96 /* Pods_ZavenQr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZavenQr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,7 @@
 				1699855527A1D5FB00D08774 /* AppStart */,
 				1699854427A1ABF400D08774 /* Assets.xcassets */,
 				1699854927A1ABF400D08774 /* Info.plist */,
+				16E9332F27A5A5D0003220D9 /* Model */,
 				16E9332227A598F7003220D9 /* Networking */,
 				1699855227A1D5C200D08774 /* Protocols */,
 				1699855027A1D55600D08774 /* Scanner */,
@@ -122,6 +125,14 @@
 				16E9332D27A5A2D5003220D9 /* PrivateKeys.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		16E9332F27A5A5D0003220D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				16E9333027A5A5DE003220D9 /* UnsplashModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B46793D21D95967E931B26A9 /* Pods */ = {
@@ -283,6 +294,7 @@
 				16E9332A27A59AAF003220D9 /* FindImageRequest.swift in Sources */,
 				16E9332827A59A6C003220D9 /* APIRequest.swift in Sources */,
 				1699853E27A1ABF300D08774 /* SceneDelegate.swift in Sources */,
+				16E9333127A5A5DE003220D9 /* UnsplashModel.swift in Sources */,
 				16E9332C27A59BD8003220D9 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
