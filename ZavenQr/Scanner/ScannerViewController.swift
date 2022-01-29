@@ -94,7 +94,9 @@ final class ScannerViewController: UIViewController {
     }
 
     private func bindViewModel() {
-        scannerViewModel.errorSubject.subscribe(onNext:{
+        scannerViewModel.errorSubject
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext:{
             let messageView = MessageView.viewFromNib(layout: .cardView)
             messageView.button?.isHidden = true
             messageView.configureTheme(.error)
