@@ -7,9 +7,12 @@
 
 import AVFoundation
 import UIKit
+import RxSwift
+import SwiftMessages
 
 final class ScannerViewController: UIViewController {
     private let scannerViewModel: ScannerViewModel
+    private let disposeBag = DisposeBag()
 
     weak var coordinator: ScannerCoordinator?
 
@@ -42,8 +45,10 @@ final class ScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-
         setupView()
+        bindViewModel()
+
+        scannerViewModel.setupInputAndOutPut()
         scannerViewModel.setupScanningArea(scanningBox.frame)
     }
 
@@ -86,5 +91,18 @@ final class ScannerViewController: UIViewController {
         fillLayer.fillColor = view.backgroundColor?.cgColor
         fillLayer.opacity = 0.5
         view.layer.addSublayer(fillLayer)
+    }
+
+    private func bindViewModel() {
+        scannerViewModel.errorSubject.subscribe(onNext:{
+            let messageView = MessageView.viewFromNib(layout: .cardView)
+            messageView.button?.isHidden = true
+            messageView.configureTheme(.error)
+            messageView.configureDropShadow()
+            messageView.configureContent(title: "Error", body: $0, iconText: "❌")
+            (messageView.backgroundView as? CornerRoundingView)?.cornerRadius = 10
+
+            SwiftMessages.show(view: messageView)
+        }).disposed(by: disposeBag)
     }
 }
