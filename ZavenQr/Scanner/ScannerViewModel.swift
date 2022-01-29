@@ -7,11 +7,14 @@
 
 import UIKit
 import AVFoundation
+import RxSwift
 
 final class ScannerViewModel: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     private let captureSession = AVCaptureSession()
     private let previewLayer: AVCaptureVideoPreviewLayer
     private let metadataOutput = AVCaptureMetadataOutput()
+
+    let errorSubject = PublishSubject<String>()
 
     override init() {
         self.previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -33,14 +36,14 @@ final class ScannerViewModel: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         if captureSession.canAddInput(videoInput) {
             captureSession.addInput(videoInput)
         } else {
-            debugPrint("Scanning not supported")
+            errorSubject.onNext("Scanning not supported")
             return
         }
     }
 
     private func setupOutPut() {
         guard captureSession.canAddOutput(metadataOutput) else {
-            debugPrint("Scanning not supported")
+            errorSubject.onNext("Scanning not supported")
             return
         }
         
