@@ -8,5 +8,6 @@ target 'ZavenQr' do
   # Pods for ZavenQr
     pod 'RxSwift'
     pod 'RxCocoa'
+    pod 'SwiftMessages'
 
 end
