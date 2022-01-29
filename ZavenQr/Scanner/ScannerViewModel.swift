@@ -19,6 +19,9 @@ final class ScannerViewModel: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     override init() {
         self.previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         super.init()
+    }
+
+    func setupInputAndOutPut() {
         setupInput()
         setupOutPut()
     }
