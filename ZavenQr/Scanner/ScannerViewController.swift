@@ -9,6 +9,7 @@ import AVFoundation
 import UIKit
 import RxSwift
 import SwiftMessages
+import RxCocoa
 
 final class ScannerViewController: UIViewController {
     private let scannerViewModel: ScannerViewModel
@@ -28,6 +29,18 @@ final class ScannerViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    private let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.color = .white
+        activityIndicator.backgroundColor = (UIColor (white: 0.3, alpha: 1))   //create a background behind the spinner
+        activityIndicator.isHidden = true
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = true
+        activityIndicator.layer.cornerRadius = 10
+        return activityIndicator
+    }()
 
     private let scanningBox: UIView = {
         let view = UIView()
@@ -61,6 +74,7 @@ final class ScannerViewController: UIViewController {
         setupPreviewLayer()
         setupScanningBox()
         setupDimEffect()
+        setupActivityIndicator()
     }
 
     private func setupPreviewLayer() {
@@ -93,6 +107,16 @@ final class ScannerViewController: UIViewController {
         view.layer.addSublayer(fillLayer)
     }
 
+    private func setupActivityIndicator() {
+        view.addSubview(activityIndicator)
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicator.heightAnchor.constraint(equalToConstant: 100),
+            activityIndicator.widthAnchor.constraint(equalToConstant: 100)
+        ])
+    }
+
     private func bindViewModel() {
         scannerViewModel.errorSubject
             .observe(on: MainScheduler.instance)
@@ -106,5 +130,11 @@ final class ScannerViewController: UIViewController {
 
             SwiftMessages.show(view: messageView)
         }).disposed(by: disposeBag)
+
+        scannerViewModel.isRefreshing
+            .map(!)
+            .asObservable()
+            .observe(on: MainScheduler.instance)
+            .bind(to: activityIndicator.rx.isHidden).disposed(by: disposeBag)
     }
 }

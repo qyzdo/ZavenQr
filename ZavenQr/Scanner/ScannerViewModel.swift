@@ -8,12 +8,15 @@
 import UIKit
 import AVFoundation
 import RxSwift
+import RxRelay
 
 final class ScannerViewModel: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     private let captureSession = AVCaptureSession()
     private let previewLayer: AVCaptureVideoPreviewLayer
     private let metadataOutput = AVCaptureMetadataOutput()
-
+    private let disposeBag = DisposeBag()
+    
+    let isRefreshing = BehaviorRelay<Bool>(value: false)
     let errorSubject = PublishSubject<String>()
 
     override init() {
