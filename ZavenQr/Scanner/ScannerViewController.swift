@@ -157,5 +157,11 @@ final class ScannerViewController: UIViewController {
             .asObservable()
             .observe(on: MainScheduler.instance)
             .bind(to: activityIndicator.rx.isHidden).disposed(by: disposeBag)
+
+        scannerViewModel.resultModelSubject
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { model in
+                self.coordinator?.showResultView(model: model)
+            }).disposed(by: disposeBag)
     }
 }
