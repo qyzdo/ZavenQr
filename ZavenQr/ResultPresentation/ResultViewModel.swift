@@ -51,4 +51,7 @@ final class ResultViewModel {
         }
     }
 
+    func saveModel() {
+        CoreDataHelper.shared.saveData(model: model)
+    }
 }
