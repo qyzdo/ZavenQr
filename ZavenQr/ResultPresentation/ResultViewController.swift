@@ -66,6 +66,7 @@ final class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        bindViewModel()
     }
 
     private func setupView() {
@@ -108,5 +109,11 @@ final class ResultViewController: UIViewController {
             secondLabel.font = UIFont.systemFont(ofSize: 15)
         }
     }
+
+    private func bindViewModel() {
+        mainLabel.text = resultViewModel.getMainLabelText()
+        secondLabel.text = resultViewModel.getSecondLabelText()
+        mainButton.setTitle(resultViewModel.getButtonTitleText(), for: .normal)
+        imageView.image = resultViewModel.getImage()
     }
 }
