@@ -61,12 +61,12 @@ final class ScannerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         scannerViewModel.startCaptureSessionIfNeeded()
+        navigationController?.isNavigationBarHidden = true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        self.navigationController?.isNavigationBarHidden = true
         setupView()
         bindViewModel()
 
@@ -162,6 +162,12 @@ final class ScannerViewController: UIViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { model in
                 self.coordinator?.showResultView(model: model)
+            }).disposed(by: disposeBag)
+
+        savedListButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.coordinator?.openSavedCodesList()
             }).disposed(by: disposeBag)
     }
 }
