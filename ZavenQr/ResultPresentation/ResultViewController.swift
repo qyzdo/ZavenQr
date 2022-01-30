@@ -93,8 +93,8 @@ final class ResultViewController: UIViewController {
 
             imageView.topAnchor.constraint(greaterThanOrEqualTo: secondLabel.bottomAnchor, constant: 10),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 150),
-            imageView.widthAnchor.constraint(equalToConstant: 150),
+            imageView.heightAnchor.constraint(equalToConstant: 250),
+            imageView.widthAnchor.constraint(equalToConstant: 250),
 
             mainButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30),
             mainButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
