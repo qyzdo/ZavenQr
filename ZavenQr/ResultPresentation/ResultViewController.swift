@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import RxSwift
 
 final class ResultViewController: UIViewController {
+    private let disposeBag = DisposeBag()
     private let resultViewModel: ResultViewModel
 
     init(resultViewModel: ResultViewModel) {
@@ -115,5 +117,21 @@ final class ResultViewController: UIViewController {
         secondLabel.text = resultViewModel.getSecondLabelText()
         mainButton.setTitle(resultViewModel.getButtonTitleText(), for: .normal)
         imageView.image = resultViewModel.getImage()
+
+        cancelButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.dismiss(animated: true)
+            }).disposed(by: disposeBag)
+
+        mainButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                if self.resultViewModel.isFromScanner {
+                    self.resultViewModel.saveModel()
+                    self.dismiss(animated: true)
+                } else {
+                    self.dismiss(animated: true)
+                }
+            }).disposed(by: disposeBag)
     }
 }
