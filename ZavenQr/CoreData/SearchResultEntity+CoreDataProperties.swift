@@ -15,8 +15,9 @@ extension SearchResultEntity {
         return NSFetchRequest<SearchResultEntity>(entityName: "SearchResultEntity")
     }
 
-    @NSManaged public var searchedPhrase: String?
-    @NSManaged public var creationDate: Date?
-    @NSManaged public var photoUrl: String?
+    @NSManaged public var searchedPhrase: String
+    @NSManaged public var creationDate: Date
+    @NSManaged public var photoUrl: String
+    @NSManaged public var imageData: Data?
 
 }
