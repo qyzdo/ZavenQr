@@ -20,4 +20,9 @@ final class ScannerCoordinator: Coordinator {
         scannerViewController.coordinator = self
         navigationController.setViewControllers([scannerViewController], animated: true)
     }
+
+    func showResultView(model: SearchResultEntity) {
+        let resultCoordinator = ResultCoordinator(navigationController: navigationController, isFromScanner: true, model: model)
+        resultCoordinator.start()
+    }
 }
