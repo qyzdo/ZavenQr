@@ -15,9 +15,12 @@ final class ScannerViewModel: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     private let previewLayer: AVCaptureVideoPreviewLayer
     private let metadataOutput = AVCaptureMetadataOutput()
     private let disposeBag = DisposeBag()
-    
+    private let apiClient = APIClient()
+    private let qrCodeSubject = PublishSubject<String>()
+
     let isRefreshing = BehaviorRelay<Bool>(value: false)
     let errorSubject = PublishSubject<String>()
+    let resultModelSubject = PublishSubject<SearchResultEntity>()
 
     override init() {
         self.previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -25,8 +28,39 @@ final class ScannerViewModel: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     }
 
     func setupInputAndOutPut() {
+        subscribeForResult()
         setupInput()
         setupOutPut()
+    }
+
+    private func subscribeForResult() {
+        qrCodeSubject.asObservable()
+            .map { ($0 ).lowercased() }
+            .map { (FindImageRequest(name: $0), $0)}
+            .map { request, qrCodePhrase -> (Observable<UnsplashModel>, String) in
+                return (self.apiClient.send(apiRequest: request), qrCodePhrase)
+            }.subscribe { [weak self] observableResult, qrCodePhrase in
+                observableResult.subscribe { [weak self] model in
+                    guard let firstResult = model.results.first,let url = URL(string: firstResult.urls.regular) else {
+                        self?.startCaptureSessionIfNeeded()
+                        return
+                    }
+
+                    DispatchQueue.main.async {
+                        if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                            let model = CoreDataHelper.shared.createModel(searchedPhrase: qrCodePhrase, photoUrl: model.results.first!.urls.regular, image: image)
+                            self?.resultModelSubject.onNext(model)
+                        } else {
+                            self?.startCaptureSessionIfNeeded()
+                        }
+                        self?.isRefreshing.accept(false)
+                    }
+                } onError: { error in
+                    self?.isRefreshing.accept(false)
+                    self?.errorSubject.onNext(error.localizedDescription)
+                }.disposed(by: self!.disposeBag)
+
+            }.disposed(by: disposeBag)
     }
 
     private func setupInput() {
@@ -75,8 +109,9 @@ final class ScannerViewModel: NSObject, AVCaptureMetadataOutputObjectsDelegate {
               let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject,
               let qrCodeString = readableObject.stringValue else { return }
         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-        // TODO: Should start searching for image with qrCodeString name
         stopCaptureSessionIfNeeded()
+        isRefreshing.accept(true)
+        qrCodeSubject.onNext(qrCodeString)
     }
 
     func createPreviewLayer(layerBounds: CGRect) -> AVCaptureVideoPreviewLayer{
