@@ -11,7 +11,7 @@ import CoreData
 
 @objc(SearchResultEntity)
 public class SearchResultEntity: NSManagedObject {
-    convenience init(searchedPhrase: String, photoUrl: String, creationDate: Date, context: NSManagedObjectContext?) {
+    convenience init(searchedPhrase: String, photoUrl: String, creationDate: Date, imageData: Data?, context: NSManagedObjectContext?) {
 
         let entity = SearchResultEntity.entity()
         self.init(entity: entity, insertInto: context)
@@ -19,6 +19,6 @@ public class SearchResultEntity: NSManagedObject {
         self.searchedPhrase = searchedPhrase
         self.photoUrl = photoUrl
         self.creationDate = creationDate
-
+        self.imageData = imageData
     }
 }
