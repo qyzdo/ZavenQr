@@ -58,6 +58,7 @@ final class ScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        self.navigationController?.isNavigationBarHidden = true
         setupView()
         bindViewModel()
 
