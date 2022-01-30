@@ -70,6 +70,11 @@ final class ResultViewController: UIViewController {
         bindViewModel()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        presentingViewController?.viewWillAppear(true)
+    }
+
     private func setupView() {
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = .systemBackground
