@@ -34,7 +34,7 @@ final class ScannerViewController: UIViewController {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.color = .white
-        activityIndicator.backgroundColor = (UIColor (white: 0.3, alpha: 1))   //create a background behind the spinner
+        activityIndicator.backgroundColor = (UIColor (white: 0.3, alpha: 1))
         activityIndicator.isHidden = true
         activityIndicator.startAnimating()
         activityIndicator.isHidden = true
