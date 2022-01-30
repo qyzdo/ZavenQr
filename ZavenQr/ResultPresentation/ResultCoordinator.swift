@@ -10,14 +10,17 @@ import UIKit
 final class ResultCoordinator: Coordinator {
     var navigationController: UINavigationController
     private let isFromScanner: Bool
+    private let model: SearchResultEntity
 
-    init(navigationController: UINavigationController, isFromScanner: Bool = false) {
+    init(navigationController: UINavigationController, isFromScanner: Bool = false, model: SearchResultEntity) {
         self.navigationController = navigationController
         self.isFromScanner = isFromScanner
+        self.model = model
     }
 
     func start() {
-        let resultViewController = ResultViewController(resultViewModel: ResultViewModel(isFromSearch: isFromScanner))
+        let viewModel = ResultViewModel(isFromScanner: isFromScanner, model: model)
+        let resultViewController = ResultViewController(resultViewModel: viewModel)
 
         let sheetNavigationController = UINavigationController(rootViewController: resultViewController)
 
