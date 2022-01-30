@@ -49,7 +49,6 @@ final class ResultViewController: UIViewController {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "trash")
         imageView.contentMode = .scaleAspectFit
         imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor.systemGray5.cgColor
@@ -72,12 +71,13 @@ final class ResultViewController: UIViewController {
     }
 
     private func setupView() {
+        self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = .systemBackground
 
         [mainLabel, secondLabel, cancelButton, imageView, mainButton].forEach{ view.addSubview($0) }
 
         NSLayoutConstraint.activate([
-            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            cancelButton.topAnchor.constraint(equalTo: view.topAnchor),
             cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             cancelButton.heightAnchor.constraint(equalToConstant: 35),
             cancelButton.widthAnchor.constraint(equalToConstant: 35),
