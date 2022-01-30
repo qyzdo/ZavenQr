@@ -15,6 +15,10 @@
 		1699855427A1D5CE00D08774 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699855327A1D5CE00D08774 /* Coordinator.swift */; };
 		1699855A27A1DB4600D08774 /* ScannerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699855927A1DB4600D08774 /* ScannerCoordinator.swift */; };
 		16BC5C5C27A32D8200260921 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC5C5B27A32D8200260921 /* ScannerViewModel.swift */; };
+		16C886C027A6D2C3002BED49 /* UnsplashCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16C886BE27A6D2C3002BED49 /* UnsplashCoreData.xcdatamodeld */; };
+		16C886CF27A6D3A2002BED49 /* SearchResultEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C886CD27A6D3A2002BED49 /* SearchResultEntity+CoreDataClass.swift */; };
+		16C886D027A6D3A2002BED49 /* SearchResultEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C886CE27A6D3A2002BED49 /* SearchResultEntity+CoreDataProperties.swift */; };
+		16C886D227A6D4C5002BED49 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C886D127A6D4C5002BED49 /* CoreDataHelper.swift */; };
 		16E9332827A59A6C003220D9 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E9332727A59A6C003220D9 /* APIRequest.swift */; };
 		16E9332A27A59AAF003220D9 /* FindImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E9332927A59AAF003220D9 /* FindImageRequest.swift */; };
 		16E9332C27A59BD8003220D9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E9332B27A59BD8003220D9 /* APIClient.swift */; };
@@ -34,6 +38,10 @@
 		1699855327A1D5CE00D08774 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1699855927A1DB4600D08774 /* ScannerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerCoordinator.swift; sourceTree = "<group>"; };
 		16BC5C5B27A32D8200260921 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		16C886BF27A6D2C3002BED49 /* UnsplashCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UnsplashCoreData.xcdatamodel; sourceTree = "<group>"; };
+		16C886CD27A6D3A2002BED49 /* SearchResultEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchResultEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16C886CE27A6D3A2002BED49 /* SearchResultEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchResultEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		16C886D127A6D4C5002BED49 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		16E9332727A59A6C003220D9 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		16E9332927A59AAF003220D9 /* FindImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindImageRequest.swift; sourceTree = "<group>"; };
 		16E9332B27A59BD8003220D9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -79,6 +87,7 @@
 			children = (
 				1699855527A1D5FB00D08774 /* AppStart */,
 				1699854427A1ABF400D08774 /* Assets.xcassets */,
+				16C886BD27A6D2AC002BED49 /* CoreData */,
 				1699854927A1ABF400D08774 /* Info.plist */,
 				16E9332F27A5A5D0003220D9 /* Model */,
 				16E9332227A598F7003220D9 /* Networking */,
@@ -91,8 +100,8 @@
 		1699855027A1D55600D08774 /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
-				1699853F27A1ABF300D08774 /* ScannerViewController.swift */,
 				1699855927A1DB4600D08774 /* ScannerCoordinator.swift */,
+				1699853F27A1ABF300D08774 /* ScannerViewController.swift */,
 				16BC5C5B27A32D8200260921 /* ScannerViewModel.swift */,
 			);
 			path = Scanner;
@@ -116,12 +125,23 @@
 			path = AppStart;
 			sourceTree = "<group>";
 		};
+		16C886BD27A6D2AC002BED49 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				16C886D127A6D4C5002BED49 /* CoreDataHelper.swift */,
+				16C886CD27A6D3A2002BED49 /* SearchResultEntity+CoreDataClass.swift */,
+				16C886CE27A6D3A2002BED49 /* SearchResultEntity+CoreDataProperties.swift */,
+				16C886BE27A6D2C3002BED49 /* UnsplashCoreData.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		16E9332227A598F7003220D9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				16E9332B27A59BD8003220D9 /* APIClient.swift */,
 				16E9332727A59A6C003220D9 /* APIRequest.swift */,
 				16E9332927A59AAF003220D9 /* FindImageRequest.swift */,
-				16E9332B27A59BD8003220D9 /* APIClient.swift */,
 				16E9332D27A5A2D5003220D9 /* PrivateKeys.swift */,
 			);
 			path = Networking;
@@ -285,15 +305,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16C886D227A6D4C5002BED49 /* CoreDataHelper.swift in Sources */,
 				1699855427A1D5CE00D08774 /* Coordinator.swift in Sources */,
 				16BC5C5C27A32D8200260921 /* ScannerViewModel.swift in Sources */,
 				1699855A27A1DB4600D08774 /* ScannerCoordinator.swift in Sources */,
+				16C886D027A6D3A2002BED49 /* SearchResultEntity+CoreDataProperties.swift in Sources */,
 				1699854027A1ABF300D08774 /* ScannerViewController.swift in Sources */,
 				1699853C27A1ABF300D08774 /* AppDelegate.swift in Sources */,
 				16E9332E27A5A2D5003220D9 /* PrivateKeys.swift in Sources */,
+				16C886C027A6D2C3002BED49 /* UnsplashCoreData.xcdatamodeld in Sources */,
 				16E9332A27A59AAF003220D9 /* FindImageRequest.swift in Sources */,
 				16E9332827A59A6C003220D9 /* APIRequest.swift in Sources */,
 				1699853E27A1ABF300D08774 /* SceneDelegate.swift in Sources */,
+				16C886CF27A6D3A2002BED49 /* SearchResultEntity+CoreDataClass.swift in Sources */,
 				16E9333127A5A5DE003220D9 /* UnsplashModel.swift in Sources */,
 				16E9332C27A59BD8003220D9 /* APIClient.swift in Sources */,
 			);
@@ -509,6 +533,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		16C886BE27A6D2C3002BED49 /* UnsplashCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				16C886BF27A6D2C3002BED49 /* UnsplashCoreData.xcdatamodel */,
+			);
+			currentVersion = 16C886BF27A6D2C3002BED49 /* UnsplashCoreData.xcdatamodel */;
+			path = UnsplashCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1699853027A1ABF200D08774 /* Project object */;
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19557.2" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="SearchResultEntity" representedClassName="SearchResultEntity" syncable="YES">
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="photoUrl" optional="YES" attributeType="String"/>
+        <attribute name="searchedPhrase" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="SearchResultEntity" positionX="-54" positionY="-9" width="128" height="74"/>
+    </elements>
+</model>
