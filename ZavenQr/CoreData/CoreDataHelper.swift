@@ -35,7 +35,6 @@ class CoreDataHelper {
     func deleteData(index: Int) {
         guard let data = fetchData() else { return }
         context.delete(data[index])
-
         do {
             try self.context.save()
         } catch {
@@ -43,8 +42,8 @@ class CoreDataHelper {
         }
     }
 
-    func createModel(searchedPhrase: String, photoUrl: String) -> SearchResultEntity {
-        let model = SearchResultEntity(searchedPhrase: searchedPhrase, photoUrl: photoUrl, creationDate: Date(), context: nil)
+    func createModel(searchedPhrase: String, photoUrl: String, image: UIImage) -> SearchResultEntity {
+        let model = SearchResultEntity(searchedPhrase: searchedPhrase, photoUrl: photoUrl, creationDate: Date(), imageData: image.jpegData(compressionQuality: 1), context: nil)
         return model
     }
 }
