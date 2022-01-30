@@ -27,7 +27,9 @@ final class ResultViewModel {
 
     func getSecondLabelText() -> String {
         if isFromScanner {
-            return model.searchedPhrase
+            return """
+            "\(model.searchedPhrase)"
+            """
         } else {
             return model.photoUrl
         }
