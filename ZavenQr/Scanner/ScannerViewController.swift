@@ -30,6 +30,14 @@ final class ScannerViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    private let savedListButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIImage(systemName: "folder.fill"), for: .normal)
+        button.tintColor = .white
+        return button
+    }()
+
     private let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -73,6 +81,7 @@ final class ScannerViewController: UIViewController {
 
     private func setupView() {
         setupPreviewLayer()
+        setupSavedListButton()
         setupScanningBox()
         setupDimEffect()
         setupActivityIndicator()
@@ -81,6 +90,17 @@ final class ScannerViewController: UIViewController {
     private func setupPreviewLayer() {
         let layer = scannerViewModel.createPreviewLayer(layerBounds: view.layer.bounds)
         view.layer.addSublayer(layer)
+    }
+
+    private func setupSavedListButton() {
+        view.addSubview(savedListButton)
+        NSLayoutConstraint.activate([
+            savedListButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            savedListButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            savedListButton.heightAnchor.constraint(equalToConstant: 45),
+            savedListButton.widthAnchor.constraint(equalToConstant: 45)
+        ])
+        view.layoutIfNeeded()
     }
 
     private func setupScanningBox() {
