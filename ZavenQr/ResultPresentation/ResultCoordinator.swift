@@ -25,6 +25,7 @@ final class ResultCoordinator: Coordinator {
         let sheetNavigationController = UINavigationController(rootViewController: resultViewController)
 
         if let sheet = sheetNavigationController.presentationController as? UISheetPresentationController {
+            sheet.prefersGrabberVisible = true
             sheet.detents = [.medium()]
         }
 

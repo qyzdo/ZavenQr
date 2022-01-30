@@ -75,28 +75,28 @@ final class ResultViewController: UIViewController {
         [mainLabel, secondLabel, cancelButton, imageView, mainButton].forEach{ view.addSubview($0) }
 
         NSLayoutConstraint.activate([
-            cancelButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-            cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             cancelButton.heightAnchor.constraint(equalToConstant: 35),
             cancelButton.widthAnchor.constraint(equalToConstant: 35),
 
-            mainLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mainLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 10),
+            mainLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             mainLabel.trailingAnchor.constraint(lessThanOrEqualTo: cancelButton.leadingAnchor, constant: -10),
 
-            secondLabel.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 5),
-            secondLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            secondLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            secondLabel.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 10),
+            secondLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            secondLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
 
             imageView.topAnchor.constraint(greaterThanOrEqualTo: secondLabel.bottomAnchor, constant: 10),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 200),
-            imageView.widthAnchor.constraint(equalToConstant: 200),
+            imageView.heightAnchor.constraint(equalToConstant: 150),
+            imageView.widthAnchor.constraint(equalToConstant: 150),
 
             mainButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30),
-            mainButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            mainButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            mainButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            mainButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             mainButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             mainButton.heightAnchor.constraint(equalToConstant: 50)
         ])
@@ -106,7 +106,7 @@ final class ResultViewController: UIViewController {
             secondLabel.font = UIFont.systemFont(ofSize: 15)
         } else {
             mainLabel.font = UIFont.systemFont(ofSize: 20)
-            secondLabel.font = UIFont.systemFont(ofSize: 15)
+            secondLabel.font = UIFont.systemFont(ofSize: 10)
         }
     }
 
