@@ -25,4 +25,9 @@ final class ScannerCoordinator: Coordinator {
         let resultCoordinator = ResultCoordinator(navigationController: navigationController, isFromScanner: true, model: model)
         resultCoordinator.start()
     }
+
+    func openSavedCodesList() {
+        let savedCodesCoordinator = SavedImagesCoordinator(navigationController: navigationController)
+        savedCodesCoordinator.start()
+    }
 }
