@@ -72,6 +72,7 @@ final class ResultViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        presentingViewController?.viewDidDisappear(true)
         presentingViewController?.viewWillAppear(true)
     }
 
