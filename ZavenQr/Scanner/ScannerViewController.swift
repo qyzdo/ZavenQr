@@ -53,7 +53,7 @@ final class ScannerViewController: UIViewController {
     private let scanningBox: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.borderWidth = 10
+        view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.red.cgColor
         return view
     }()
