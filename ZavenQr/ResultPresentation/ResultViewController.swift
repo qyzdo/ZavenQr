@@ -78,35 +78,11 @@ final class ResultViewController: UIViewController {
     private func setupView() {
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = .systemBackground
-
-        [mainLabel, secondLabel, cancelButton, imageView, mainButton].forEach{ view.addSubview($0) }
-
-        NSLayoutConstraint.activate([
-            cancelButton.topAnchor.constraint(equalTo: view.topAnchor),
-            cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            cancelButton.heightAnchor.constraint(equalToConstant: 35),
-            cancelButton.widthAnchor.constraint(equalToConstant: 35),
-
-            mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mainLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            mainLabel.trailingAnchor.constraint(lessThanOrEqualTo: cancelButton.leadingAnchor, constant: -10),
-
-            secondLabel.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 10),
-            secondLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            secondLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-
-            imageView.topAnchor.constraint(greaterThanOrEqualTo: secondLabel.bottomAnchor, constant: 10),
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 250),
-            imageView.widthAnchor.constraint(equalToConstant: 250),
-
-            mainButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30),
-            mainButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            mainButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            mainButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            mainButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        setupCancelButtonView()
+        setupMainLabelView()
+        setupSecondLabel()
+        setupImageView()
+        setupMainButtonView()
 
         if resultViewModel.isFromScanner {
             mainLabel.font = UIFont.systemFont(ofSize: 25)
@@ -115,6 +91,61 @@ final class ResultViewController: UIViewController {
             mainLabel.font = UIFont.systemFont(ofSize: 20)
             secondLabel.font = UIFont.systemFont(ofSize: 10)
         }
+    }
+
+    private func setupCancelButtonView() {
+        view.addSubview(cancelButton)
+
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: view.topAnchor),
+            cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            cancelButton.heightAnchor.constraint(equalToConstant: 35),
+            cancelButton.widthAnchor.constraint(equalToConstant: 35),
+        ])
+    }
+
+    private func setupMainLabelView() {
+        view.addSubview(mainLabel)
+
+        NSLayoutConstraint.activate([
+            mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mainLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            mainLabel.trailingAnchor.constraint(lessThanOrEqualTo: cancelButton.leadingAnchor, constant: -10),
+        ])
+    }
+
+    private func setupSecondLabel() {
+        view.addSubview(secondLabel)
+
+        NSLayoutConstraint.activate([
+            secondLabel.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 10),
+            secondLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            secondLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+        ])
+    }
+
+    private func setupImageView() {
+        view.addSubview(imageView)
+
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(greaterThanOrEqualTo: secondLabel.bottomAnchor, constant: 10),
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 230),
+            imageView.widthAnchor.constraint(equalToConstant: 230),
+        ])
+    }
+
+    private func setupMainButtonView() {
+        view.addSubview(mainButton)
+
+        NSLayoutConstraint.activate([
+            mainButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30),
+            mainButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            mainButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            mainButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            mainButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 
     private func bindViewModel() {
